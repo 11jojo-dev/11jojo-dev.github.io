@@ -262,6 +262,15 @@
     transform:rotate(-2deg);
   }
   .id-card.nimbus .id-stamp{color:var(--ember); border-color:var(--ember);}
+  .nimbus-avatar{
+    display:block;
+    width:96px; height:96px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid var(--ember);
+    box-shadow:0 0 18px rgba(255,154,68,0.4);
+    margin-bottom:16px;
+  }
   .id-card h3{font-size:1.9rem; margin-bottom:4px;}
   .id-role{color:var(--text-soft); font-family:'Barlow Condensed',sans-serif; letter-spacing:0.05em; margin-bottom:22px; font-size:1rem;}
   .id-fields{display:grid; grid-template-columns:1fr 1fr; gap:14px 18px; margin-bottom:20px;}
@@ -272,7 +281,71 @@
   .id-field dd{font-weight:600; font-size:0.98rem;}
   .id-card p.bio{color:var(--text-soft); line-height:1.65; font-size:0.96rem; border-top:1px dashed rgba(168,85,247,0.3); padding-top:18px;}
 
-  /* ---------- FOOTER ---------- */
+  /* ---------- STREAMING PLAN ---------- */
+  .plan-section{background:var(--ink); padding:90px 0 100px;}
+  .plan-section .about-head h2{color:var(--mist);}
+  .calendar{
+    display:grid;
+    grid-template-columns:repeat(7, 1fr);
+    gap:12px;
+    margin-top:10px;
+  }
+  @media (max-width:760px){
+    .calendar{ grid-template-columns:1fr 1fr; }
+  }
+  @media (max-width:420px){
+    .calendar{ grid-template-columns:1fr; }
+  }
+  .cal-day{
+    background:linear-gradient(160deg, #1d1034, #150b27);
+    border:1px solid rgba(168,85,247,0.2);
+    border-radius:6px;
+    padding:16px 12px 18px;
+    text-align:center;
+    display:flex; flex-direction:column; align-items:center; gap:12px;
+    transition:transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .cal-day.live{
+    border-color:var(--bright);
+    box-shadow:0 0 16px rgba(168,85,247,0.18);
+  }
+  .cal-day.live:hover{
+    transform:translateY(-4px);
+    box-shadow:0 8px 24px rgba(168,85,247,0.3);
+  }
+  .cal-name{
+    font-family:'Barlow Condensed',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    font-size:0.82rem;
+    color:var(--text-soft);
+  }
+  .cal-slot{
+    font-family:'Rajdhani',sans-serif;
+    font-weight:700;
+    font-size:1.05rem;
+    color:var(--mist);
+    display:flex; flex-direction:column; gap:3px;
+    line-height:1.2;
+  }
+  .cal-slot small{
+    font-family:'Inter',sans-serif;
+    font-weight:500;
+    font-size:0.72rem;
+    color:var(--bright);
+    letter-spacing:0.03em;
+  }
+  .cal-slot.off{
+    color:rgba(205,185,236,0.35);
+    font-weight:600;
+    font-size:0.95rem;
+  }
+  .cal-note{
+    text-align:center;
+    margin-top:24px;
+    color:rgba(205,185,236,0.5);
+    font-size:0.85rem;
+  }
   footer{
     background:var(--ink); padding:46px 24px 36px; text-align:center;
     border-top:1px solid rgba(168,85,247,0.15);
@@ -313,6 +386,7 @@
     <a href="#social">Kanäle</a>
     <a href="#about">Über mich</a>
     <a href="#nimbus">Nimbus</a>
+    <a href="#plan">Plan</a>
   </nav>
 </header>
 
@@ -388,22 +462,65 @@
 
       <article id="nimbus" class="id-card nimbus reveal">
         <div class="id-shield" aria-hidden="true"></div>
-        <span class="id-stamp">Streamco-Pilotin</span>
+        <img class="nimbus-avatar" src="nimbus.jpg" alt="Nimbus, britisch Langhaar Kater">
+        <span class="id-stamp">Stream-Saboteur</span>
         <h3>Nimbus</h3>
         <p class="id-role">Britisch Langhaar</p>
         <dl class="id-fields">
           <div class="id-field"><dt>Alter</dt><dd>1 Jahr</dd></div>
           <div class="id-field"><dt>Rasse</dt><dd>Brit. Langhaar</dd></div>
-          <div class="id-field"><dt>Beruf</dt><dd>Logo-Modell</dd></div>
-          <div class="id-field"><dt>Vorliebe</dt><dd>Stream-Schoß</dd></div>
+          <div class="id-field"><dt>Status</dt><dd>Schläft</dd></div>
+          <div class="id-field"><dt>Schuld?</dt><dd>Niemals</dd></div>
         </dl>
-        <p class="bio">Graues Fell, orange Augen, null Geduld für leere Streams ohne sie im Bild. Nimbus hat ihren festen Platz im Logo — und im echten Leben sowieso.</p>
+        <p class="bio">Nimbus ist eigentlich nur am Schlafen — den ganzen Tag. Falls also mal ein Stream ausfällt: Das ist garantiert <em>nicht</em> seine Schuld, er hat ja durchgehend gepennt. Ein echtes Vorbild an Unschuld und Gelassenheit.</p>
       </article>
     </div>
   </div>
 </section>
 
-<footer>
+<div class="torn flip" aria-hidden="true"></div>
+<div class="torn-inner" aria-hidden="true" style="transform:scaleY(-1);"></div>
+
+<section id="plan" class="plan-section">
+  <div class="wrap">
+    <div class="about-head">
+      <span class="eyebrow">Wann ich live bin</span>
+      <h2 class="reveal">Streaming-Plan</h2>
+      <p class="reveal">Meine Zeiten wechseln öfter — hier seht ihr die aktuelle Woche. Schaut am besten regelmäßig rein oder folgt mir, damit ihr keinen Stream verpasst.</p>
+    </div>
+
+    <div class="calendar reveal">
+      <div class="cal-day">
+        <span class="cal-name">Montag</span>
+        <span class="cal-slot off">Frei</span>
+      </div>
+      <div class="cal-day live">
+        <span class="cal-name">Dienstag</span>
+        <span class="cal-slot">19:00 Uhr<small>Gaming</small></span>
+      </div>
+      <div class="cal-day">
+        <span class="cal-name">Mittwoch</span>
+        <span class="cal-slot off">Frei</span>
+      </div>
+      <div class="cal-day live">
+        <span class="cal-name">Donnerstag</span>
+        <span class="cal-slot">19:00 Uhr<small>Gaming</small></span>
+      </div>
+      <div class="cal-day">
+        <span class="cal-name">Freitag</span>
+        <span class="cal-slot off">Frei</span>
+      </div>
+      <div class="cal-day live">
+        <span class="cal-name">Samstag</span>
+        <span class="cal-slot">15:00 Uhr<small>Just Chatting</small></span>
+      </div>
+      <div class="cal-day live">
+        <span class="cal-name">Sonntag</span>
+        <span class="cal-slot">18:00 Uhr<small>Gaming</small></span>
+      </div>
+    </div>
+    <p class="cal-note reveal">Alle Zeiten ohne Gewähr — kurzfristige Änderungen sind möglich.</p>
+  </div>
   <div class="brand">
     <img src="logo.png" alt="">
     <span>FuxenTv</span>
