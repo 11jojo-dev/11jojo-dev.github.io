@@ -24,6 +24,8 @@
 
   *{margin:0;padding:0;box-sizing:border-box;}
 
+  a{color:inherit; text-decoration:none;}
+
   html{scroll-behavior:smooth;}
 
   body{
@@ -131,7 +133,7 @@
     will-change:transform;
   }
   .hero-inner{position:relative; z-index:2; max-width:780px;}
-  .hero .eyebrow{display:block; margin-bottom:18px; opacity:0; animation:riseIn 0.8s ease forwards; animation-delay:0.1s;}
+  .hero .eyebrow{display:block; margin-bottom:18px; color:#d9c2fb; text-shadow:0 2px 6px rgba(0,0,0,0.6); opacity:0; animation:riseIn 0.8s ease forwards; animation-delay:0.1s;}
   .hero h1{
     font-size:clamp(3rem, 9vw, 6rem);
     background:linear-gradient(180deg, #ffffff 0%, #d9c2fb 45%, var(--bright) 100%);
@@ -141,8 +143,9 @@
     opacity:0; animation:riseIn 0.8s ease forwards; animation-delay:0.25s;
   }
   .hero p.tag{
-    font-size:1.08rem; color:var(--text-soft); max-width:560px; margin:0 auto 36px;
+    font-size:1.08rem; color:#ffffff; max-width:560px; margin:0 auto 36px;
     line-height:1.6;
+    text-shadow:0 2px 8px rgba(0,0,0,0.7);
     opacity:0; animation:riseIn 0.8s ease forwards; animation-delay:0.42s;
   }
   .hero-cta{
@@ -354,10 +357,18 @@
     border-top:1px solid rgba(168,85,247,0.15);
   }
   footer .brand{justify-content:center; margin-bottom:16px;}
-  footer .f-links{display:flex; gap:22px; justify-content:center; margin-bottom:18px;}
-  footer .f-links a{color:var(--text-soft); transition:color 0.2s;}
-  footer .f-links a:hover, footer .f-links a:focus-visible{color:var(--bright);}
-  footer .f-links svg{width:22px; height:22px;}
+  footer .f-links{display:flex; gap:26px; justify-content:center; align-items:center; margin-bottom:18px;}
+  footer .f-links a{
+    color:var(--text-soft);
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    line-height:0;
+    transition:color 0.2s, transform 0.2s;
+  }
+  footer .f-links a:hover, footer .f-links a:focus-visible{color:var(--bright); transform:translateY(-2px);}
+  footer .f-links svg{width:24px; height:24px; display:block;}
   footer small{color:rgba(205,185,236,0.5); font-size:0.8rem;}
 
   /* ---------- scroll reveal ---------- */
@@ -401,6 +412,7 @@
     <p class="tag">Ich bin Jordan, 20 Jahre alt, im Dienst bei der Bundeswehr — und sobald die Uniform aus ist, läuft der Stream. Hauptsächlich Videospiele, manchmal einfach nur Quatschen. Immer mit dabei: meine Katze Nimbus.</p>
     <div class="hero-cta">
       <a class="btn primary" href="#social">Meine Kanäle</a>
+      <a class="btn" href="#plan">Streaming-Plan</a>
       <a class="btn" href="#nimbus">Wer ist Nimbus?</a>
     </div>
   </div>
@@ -465,7 +477,7 @@
 
       <article id="nimbus" class="id-card nimbus reveal">
         <div class="id-shield" aria-hidden="true"></div>
-        <img class="nimbus-avatar" src="nimbus.jpg" width="96" height="96" alt="Nimbus, britisch Langhaar Kater">
+        <img class="nimbus-avatar" src="nimbus.jpeg" width="96" height="96" alt="Nimbus, britisch Langhaar Kater">
         <span class="id-stamp">Stream-Saboteur</span>
         <h3>Nimbus</h3>
         <p class="id-role">Britisch Langhaar</p>
