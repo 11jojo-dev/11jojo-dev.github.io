@@ -8,7 +8,7 @@
 <link rel="icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Rajdhani:wght@500;600;700&family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#130a22;
@@ -135,13 +135,21 @@
   .hero-inner{position:relative; z-index:2; max-width:780px;}
   .hero .eyebrow{display:block; margin-bottom:18px; color:#d9c2fb; text-shadow:0 2px 6px rgba(0,0,0,0.6); opacity:0; animation:riseIn 0.8s ease forwards; animation-delay:0.1s;}
   .hero h1{
-    font-size:clamp(3rem, 9vw, 6rem);
-    background:linear-gradient(180deg, #ffffff 0%, #d9c2fb 45%, var(--bright) 100%);
-    -webkit-background-clip:text; background-clip:text; color:transparent;
-    text-shadow:0 0 40px rgba(168,85,247,0.35);
+    font-family:'Oswald', sans-serif;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    font-size:clamp(3.4rem, 11vw, 7rem);
+    color:#fdfbff;
     margin-bottom:18px;
+    text-shadow:
+      0 0 1px rgba(168,85,247,0.6),
+      0 0 14px rgba(168,85,247,0.55),
+      0 0 34px rgba(124,58,237,0.5),
+      0 4px 18px rgba(0,0,0,0.55);
     opacity:0; animation:riseIn 0.8s ease forwards; animation-delay:0.25s;
   }
+  .hero h1 .accent{ color:var(--bright); }
   .hero p.tag{
     font-size:1.08rem; color:#ffffff; max-width:560px; margin:0 auto 36px;
     line-height:1.6;
@@ -204,9 +212,10 @@
   .social-section .eyebrow{color:var(--royal);}
   .social-section h2{color:var(--ink); font-size:clamp(2rem,5vw,2.8rem); margin:10px 0 40px;}
   .social-grid{
-    display:grid; grid-template-columns:repeat(3, 1fr); gap:22px;
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:18px;
   }
-  @media (max-width:760px){ .social-grid{grid-template-columns:1fr;} }
+  @media (max-width:900px){ .social-grid{grid-template-columns:repeat(2, 1fr);} }
+  @media (max-width:480px){ .social-grid{grid-template-columns:1fr;} }
 
   .social-card{
     position:relative; display:flex; flex-direction:column; align-items:flex-start; gap:14px;
@@ -277,6 +286,16 @@
     box-shadow:0 0 18px rgba(255,154,68,0.4);
     margin-bottom:16px;
   }
+  .id-avatar{
+    display:block;
+    width:96px; height:96px;
+    border-radius:50%;
+    object-fit:cover;
+    background:#1a0e35;
+    border:3px solid var(--bright);
+    box-shadow:0 0 18px rgba(168,85,247,0.45);
+    margin-bottom:16px;
+  }
   .id-card h3{font-size:1.9rem; margin-bottom:4px;}
   .id-role{color:var(--text-soft); font-family:'Barlow Condensed',sans-serif; letter-spacing:0.05em; margin-bottom:22px; font-size:1rem;}
   .id-fields{display:grid; grid-template-columns:1fr 1fr; gap:14px 18px; margin-bottom:20px;}
@@ -286,6 +305,28 @@
   }
   .id-field dd{font-weight:600; font-size:0.98rem;}
   .id-card p.bio{color:var(--text-soft); line-height:1.65; font-size:0.96rem; border-top:1px dashed rgba(168,85,247,0.3); padding-top:18px;}
+
+  /* ---------- LIVE / TWITCH ---------- */
+  .live-section{background:var(--ink-2); padding:90px 0 100px;}
+  .live-section .about-head h2{color:var(--mist);}
+  .live-frame{
+    position:relative;
+    width:100%;
+    max-width:900px;
+    margin:0 auto;
+    aspect-ratio:16 / 9;
+    border-radius:10px;
+    overflow:hidden;
+    border:1px solid rgba(168,85,247,0.35);
+    box-shadow:0 0 30px rgba(168,85,247,0.2);
+    background:#0e0720;
+  }
+  .live-frame iframe{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    border:0;
+  }
+  .live-cta{ text-align:center; margin-top:28px; }
 
   /* ---------- STREAMING PLAN ---------- */
   .plan-section{background:var(--ink); padding:90px 0 100px;}
@@ -411,10 +452,10 @@
     <span>FuxenTv</span>
   </div>
   <nav>
-    <a href="#social">Kanäle</a>
-    <a href="#about">Über mich</a>
-    <a href="#nimbus">Nimbus</a>
+    <a href="#live">Live</a>
     <a href="#plan">Plan</a>
+    <a href="#about">Über mich</a>
+    <a href="#social">Kanäle</a>
   </nav>
 </header>
 
@@ -422,12 +463,12 @@
   <div class="hero-bg" id="heroBg" aria-hidden="true"></div>
   <div class="hero-inner">
     <span class="eyebrow">Streamer &middot; Soldat &middot; Katzenvater</span>
-    <h1>FuxenTv</h1>
+    <h1>Fuxen<span class="accent">Tv</span></h1>
     <p class="tag">Ich bin Jordan, 20 Jahre alt, im Dienst bei der Bundeswehr — und sobald die Uniform aus ist, läuft der Stream. Hauptsächlich Videospiele, manchmal einfach nur Quatschen. Immer mit dabei: mein Kater Nimbus.</p>
     <div class="hero-cta">
-      <a class="btn primary" href="#social">Meine Kanäle</a>
+      <a class="btn primary" href="#live">Live ansehen</a>
+      <a class="btn" href="#social">Meine Kanäle</a>
       <a class="btn" href="#plan">Streaming-Plan</a>
-      <a class="btn" href="#nimbus">Wer ist Nimbus?</a>
     </div>
   </div>
 </section>
@@ -435,36 +476,55 @@
 <div class="torn" aria-hidden="true"></div>
 <div class="torn-inner" aria-hidden="true"></div>
 
-<section id="social" class="social-section">
+<section id="live" class="live-section">
   <div class="wrap">
-    <span class="eyebrow">Überall zu finden</span>
-    <h2 class="reveal">Folg mir hier</h2>
-    <div class="social-grid">
-
-      <a class="social-card reveal" href="https://www.instagram.com/fuxentv" target="_blank" rel="noopener">
-        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
-        <span class="s-name">Instagram</span>
-        <span class="s-handle">@fuxentv</span>
-        <span class="s-arrow">↗</span>
-      </a>
-
-      <a class="social-card reveal" href="https://www.tiktok.com/@fuxentv" target="_blank" rel="noopener">
-        <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82c-.9-.6-1.55-1.56-1.73-2.67h-2.9v13.04c0 1.4-1.14 2.54-2.54 2.54a2.54 2.54 0 1 1 0-5.08c.26 0 .52.04.76.11V10.7a5.45 5.45 0 0 0-.76-.05A5.45 5.45 0 0 0 4 16.1a5.45 5.45 0 0 0 9.97 3.06 5.4 5.4 0 0 0 1.03-3.2V9.18a8.18 8.18 0 0 0 4.7 1.48V7.78a4.85 4.85 0 0 1-3.1-1.96z"/></svg>
-        <span class="s-name">TikTok</span>
-        <span class="s-handle">@fuxentv</span>
-        <span class="s-arrow">↗</span>
-      </a>
-
-      <a class="social-card reveal" href="https://youtube.com/@fuxentv" target="_blank" rel="noopener">
-        <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2s-.21-1.49-.86-2.14c-.82-.86-1.74-.86-2.16-.91C15.6 4 12 4 12 4h-.01s-3.6 0-6.58.15c-.42.05-1.34.05-2.16.91-.65.65-.86 2.14-.86 2.14S2.18 8.94 2.18 10.68v1.63c0 1.74.21 3.48.21 3.48s.21 1.49.86 2.14c.82.86 1.9.83 2.38.92 1.72.17 7.37.22 7.37.22s3.6-.01 6.59-.16c.42-.05 1.34-.05 2.16-.91.65-.65.86-2.14.86-2.14s.21-1.74.21-3.48v-1.63c0-1.74-.21-3.48-.21-3.48zM9.95 14.6V8.99l5.6 2.81-5.6 2.8z"/></svg>
-        <span class="s-name">YouTube</span>
-        <span class="s-handle">@fuxentv</span>
-        <span class="s-arrow">↗</span>
-      </a>
-
+    <div class="about-head">
+      <span class="eyebrow">Jetzt reinschauen</span>
+      <h2 class="reveal">Live auf Twitch</h2>
+      <p class="reveal">Wenn ich online bin, läuft mein Stream direkt hier. Bin ich gerade offline, seht ihr eine Vorschau — dann einfach folgen, damit ihr beim nächsten Mal dabei seid.</p>
+    </div>
+    <div class="live-frame reveal">
+      <iframe
+        src="https://player.twitch.tv/?channel=fuxentv&parent=fuxentv.de&parent=11jojo-dev.github.io&muted=true"
+        allowfullscreen
+        title="FuxenTv Twitch Stream">
+      </iframe>
+    </div>
+    <div class="live-cta reveal">
+      <a class="btn primary" href="https://twitch.tv/fuxentv" target="_blank" rel="noopener">Auf Twitch öffnen</a>
     </div>
   </div>
 </section>
+
+
+<div class="torn" aria-hidden="true"></div>
+<div class="torn-inner" aria-hidden="true"></div>
+
+<section id="plan" class="plan-section">
+  <div class="wrap">
+    <div class="about-head">
+      <span class="eyebrow">Wann ich live bin</span>
+      <h2 class="reveal">Streaming-Plan</h2>
+      <p class="reveal">Meine Zeiten wechseln öfter — hier seht ihr die aktuelle Woche. Schaut am besten regelmäßig rein oder folgt mir, damit ihr keinen Stream verpasst.</p>
+    </div>
+
+    <div class="calendar two-days reveal">
+      <div class="cal-day live">
+        <span class="cal-name">Freitag</span>
+        <span class="cal-slot">08:00 – 12:00 Uhr<small>Stream</small></span>
+      </div>
+      <div class="cal-day live">
+        <span class="cal-name">Samstag</span>
+        <span class="cal-slot">19:00 – 23:00 Uhr<small>Stream</small></span>
+      </div>
+    </div>
+    <p class="cal-note reveal">Alle Zeiten ohne Gewähr — kurzfristige Änderungen sind möglich.</p>
+  </div>
+</section>
+
+
+<div class="torn flip" aria-hidden="true"></div>
+<div class="torn-inner" aria-hidden="true" style="transform:scaleY(-1);"></div>
 
 <section id="about" class="about-section">
   <div class="wrap">
@@ -477,6 +537,7 @@
     <div class="cards">
       <article class="id-card reveal">
         <div class="id-shield" aria-hidden="true"></div>
+        <img class="id-avatar" src="logo.png" width="96" height="96" alt="FuxenTv Logo">
         <span class="id-stamp">Aktiver Dienst</span>
         <h3>Jordan</h3>
         <p class="id-role">aka FuxenTv</p>
@@ -507,29 +568,47 @@
   </div>
 </section>
 
-<div class="torn flip" aria-hidden="true"></div>
-<div class="torn-inner" aria-hidden="true" style="transform:scaleY(-1);"></div>
 
-<section id="plan" class="plan-section">
+<section id="social" class="social-section">
   <div class="wrap">
-    <div class="about-head">
-      <span class="eyebrow">Wann ich live bin</span>
-      <h2 class="reveal">Streaming-Plan</h2>
-      <p class="reveal">Meine Zeiten wechseln öfter — hier seht ihr die aktuelle Woche. Schaut am besten regelmäßig rein oder folgt mir, damit ihr keinen Stream verpasst.</p>
-    </div>
+    <span class="eyebrow">Überall zu finden</span>
+    <h2 class="reveal">Folg mir hier</h2>
+    <div class="social-grid">
 
-    <div class="calendar two-days reveal">
-      <div class="cal-day live">
-        <span class="cal-name">Freitag</span>
-        <span class="cal-slot">08:00 – 12:00 Uhr<small>Stream</small></span>
-      </div>
-      <div class="cal-day live">
-        <span class="cal-name">Samstag</span>
-        <span class="cal-slot">19:00 – 23:00 Uhr<small>Stream</small></span>
-      </div>
+      <a class="social-card reveal" href="https://www.instagram.com/fuxentv" target="_blank" rel="noopener">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
+        <span class="s-name">Instagram</span>
+        <span class="s-handle">@fuxentv</span>
+        <span class="s-arrow">↗</span>
+      </a>
+
+      <a class="social-card reveal" href="https://www.tiktok.com/@fuxentv" target="_blank" rel="noopener">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82c-.9-.6-1.55-1.56-1.73-2.67h-2.9v13.04c0 1.4-1.14 2.54-2.54 2.54a2.54 2.54 0 1 1 0-5.08c.26 0 .52.04.76.11V10.7a5.45 5.45 0 0 0-.76-.05A5.45 5.45 0 0 0 4 16.1a5.45 5.45 0 0 0 9.97 3.06 5.4 5.4 0 0 0 1.03-3.2V9.18a8.18 8.18 0 0 0 4.7 1.48V7.78a4.85 4.85 0 0 1-3.1-1.96z"/></svg>
+        <span class="s-name">TikTok</span>
+        <span class="s-handle">@fuxentv</span>
+        <span class="s-arrow">↗</span>
+      </a>
+
+      <a class="social-card reveal" href="https://youtube.com/@fuxentv" target="_blank" rel="noopener">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2s-.21-1.49-.86-2.14c-.82-.86-1.74-.86-2.16-.91C15.6 4 12 4 12 4h-.01s-3.6 0-6.58.15c-.42.05-1.34.05-2.16.91-.65.65-.86 2.14-.86 2.14S2.18 8.94 2.18 10.68v1.63c0 1.74.21 3.48.21 3.48s.21 1.49.86 2.14c.82.86 1.9.83 2.38.92 1.72.17 7.37.22 7.37.22s3.6-.01 6.59-.16c.42-.05 1.34-.05 2.16-.91.65-.65.86-2.14.86-2.14s.21-1.74.21-3.48v-1.63c0-1.74-.21-3.48-.21-3.48zM9.95 14.6V8.99l5.6 2.81-5.6 2.8z"/></svg>
+        <span class="s-name">YouTube</span>
+        <span class="s-handle">@fuxentv</span>
+        <span class="s-arrow">↗</span>
+      </a>
+
+      <a class="social-card reveal" href="https://twitch.tv/fuxentv" target="_blank" rel="noopener">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><path d="M4.3 3 3 6.5v13h4.5V22h2.5l2.5-2.5h3.6L21.5 15V3H4.3zm15.2 11-2.6 2.6h-4l-2.3 2.3v-2.3H7.3V4.7h12.2V14zM16.5 7.8v4.3H15V7.8h1.5zm-4 0v4.3H11V7.8h1.5z"/></svg>
+        <span class="s-name">Twitch</span>
+        <span class="s-handle">/fuxentv</span>
+        <span class="s-arrow">↗</span>
+      </a>
+
     </div>
-    <p class="cal-note reveal">Alle Zeiten ohne Gewähr — kurzfristige Änderungen sind möglich.</p>
   </div>
+</section>
+
+
+<footer>
   <div class="brand">
     <img src="logo.png" alt="">
     <span>FuxenTv</span>
@@ -544,9 +623,14 @@
     <a href="https://youtube.com/@fuxentv" target="_blank" rel="noopener" aria-label="YouTube">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2s-.21-1.49-.86-2.14c-.82-.86-1.74-.86-2.16-.91C15.6 4 12 4 12 4h-.01s-3.6 0-6.58.15c-.42.05-1.34.05-2.16.91-.65.65-.86 2.14-.86 2.14S2.18 8.94 2.18 10.68v1.63c0 1.74.21 3.48.21 3.48s.21 1.49.86 2.14c.82.86 1.9.83 2.38.92 1.72.17 7.37.22 7.37.22s3.6-.01 6.59-.16c.42-.05 1.34-.05 2.16-.91.65-.65.86-2.14.86-2.14s.21-1.74.21-3.48v-1.63c0-1.74-.21-3.48-.21-3.48zM9.95 14.6V8.99l5.6 2.81-5.6 2.8z"/></svg>
     </a>
+    <a href="https://twitch.tv/fuxentv" target="_blank" rel="noopener" aria-label="Twitch">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M4.3 3 3 6.5v13h4.5V22h2.5l2.5-2.5h3.6L21.5 15V3H4.3zm15.2 11-2.6 2.6h-4l-2.3 2.3v-2.3H7.3V4.7h12.2V14zM16.5 7.8v4.3H15V7.8h1.5zm-4 0v4.3H11V7.8h1.5z"/></svg>
+    </a>
   </div>
   <small>&copy; 2026 FuxenTv — Jordan &amp; Nimbus</small>
 </footer>
+
+
 
 <script>
   const els = document.querySelectorAll('.reveal');
