@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FuxenTv — Jordan &amp; Nimbus</title>
-<meta name="description" content="FuxenTv: Streamer bei der Bundeswehr, mit Katze Nimbus an seiner Seite. Alle Social-Media-Kanäle an einem Ort.">
+<meta name="description" content="FuxenTv: Streamer bei der Bundeswehr, mit Kater Nimbus an seiner Seite. Alle Social-Media-Kanäle an einem Ort.">
 <link rel="icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -302,6 +302,14 @@
   @media (max-width:420px){
     .calendar{ grid-template-columns:1fr; }
   }
+  .calendar.two-days{
+    grid-template-columns:repeat(2, minmax(0, 240px));
+    justify-content:center;
+    gap:20px;
+  }
+  @media (max-width:520px){
+    .calendar.two-days{ grid-template-columns:1fr; max-width:320px; margin-left:auto; margin-right:auto; }
+  }
   .cal-day{
     background:linear-gradient(160deg, #1d1034, #150b27);
     border:1px solid rgba(168,85,247,0.2);
@@ -319,6 +327,12 @@
     transform:translateY(-4px);
     box-shadow:0 8px 24px rgba(168,85,247,0.3);
   }
+  .calendar.two-days .cal-day{
+    padding:26px 18px 28px;
+    gap:16px;
+  }
+  .calendar.two-days .cal-name{ font-size:0.95rem; }
+  .calendar.two-days .cal-slot{ font-size:1.25rem; }
   .cal-name{
     font-family:'Barlow Condensed',sans-serif;
     text-transform:uppercase;
@@ -409,7 +423,7 @@
   <div class="hero-inner">
     <span class="eyebrow">Streamer &middot; Soldat &middot; Katzenvater</span>
     <h1>FuxenTv</h1>
-    <p class="tag">Ich bin Jordan, 20 Jahre alt, im Dienst bei der Bundeswehr — und sobald die Uniform aus ist, läuft der Stream. Hauptsächlich Videospiele, manchmal einfach nur Quatschen. Immer mit dabei: meine Katze Nimbus.</p>
+    <p class="tag">Ich bin Jordan, 20 Jahre alt, im Dienst bei der Bundeswehr — und sobald die Uniform aus ist, läuft der Stream. Hauptsächlich Videospiele, manchmal einfach nur Quatschen. Immer mit dabei: mein Kater Nimbus.</p>
     <div class="hero-cta">
       <a class="btn primary" href="#social">Meine Kanäle</a>
       <a class="btn" href="#plan">Streaming-Plan</a>
@@ -457,7 +471,7 @@
     <div class="about-head">
       <span class="eyebrow">Dienstausweis</span>
       <h2 class="reveal">Über mich &amp; Nimbus</h2>
-      <p class="reveal">Zwei kurze Steckbriefe — einer für mich, einer für die eigentliche Chefin im Haushalt.</p>
+      <p class="reveal">Zwei kurze Steckbriefe — einer für mich, einer für den eigentlichen Chef im Haushalt.</p>
     </div>
 
     <div class="cards">
@@ -504,34 +518,14 @@
       <p class="reveal">Meine Zeiten wechseln öfter — hier seht ihr die aktuelle Woche. Schaut am besten regelmäßig rein oder folgt mir, damit ihr keinen Stream verpasst.</p>
     </div>
 
-    <div class="calendar reveal">
-      <div class="cal-day">
-        <span class="cal-name">Montag</span>
-        <span class="cal-slot off">Frei</span>
-      </div>
+    <div class="calendar two-days reveal">
       <div class="cal-day live">
-        <span class="cal-name">Dienstag</span>
-        <span class="cal-slot">19:00 Uhr<small>Gaming</small></span>
-      </div>
-      <div class="cal-day">
-        <span class="cal-name">Mittwoch</span>
-        <span class="cal-slot off">Frei</span>
-      </div>
-      <div class="cal-day live">
-        <span class="cal-name">Donnerstag</span>
-        <span class="cal-slot">19:00 Uhr<small>Gaming</small></span>
-      </div>
-      <div class="cal-day">
         <span class="cal-name">Freitag</span>
-        <span class="cal-slot off">Frei</span>
+        <span class="cal-slot">08:00 – 12:00 Uhr<small>Stream</small></span>
       </div>
       <div class="cal-day live">
         <span class="cal-name">Samstag</span>
-        <span class="cal-slot">15:00 Uhr<small>Just Chatting</small></span>
-      </div>
-      <div class="cal-day live">
-        <span class="cal-name">Sonntag</span>
-        <span class="cal-slot">18:00 Uhr<small>Gaming</small></span>
+        <span class="cal-slot">19:00 – 23:00 Uhr<small>Stream</small></span>
       </div>
     </div>
     <p class="cal-note reveal">Alle Zeiten ohne Gewähr — kurzfristige Änderungen sind möglich.</p>
